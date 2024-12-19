@@ -6,13 +6,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import vn.edu.iuh.fit.services.CuaHangServices;
+import vn.edu.iuh.fit.services.implement.CuaHangImpl;
 
 @Controller
 @RequestMapping("/cuahang")
 public class CuaHangController {
 
     @Autowired
-    private CuaHangServices cuaHangServices;
+    private CuaHangImpl cuaHangServices;
 
     @GetMapping("/list")
     public String listCuaHang(Model model){

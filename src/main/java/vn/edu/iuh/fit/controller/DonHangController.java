@@ -1,7 +1,6 @@
 package vn.edu.iuh.fit.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,22 +9,23 @@ import vn.edu.iuh.fit.models.Cuahang;
 import vn.edu.iuh.fit.models.Donhang;
 import vn.edu.iuh.fit.services.CuaHangServices;
 import vn.edu.iuh.fit.services.DonHangServices;
+import vn.edu.iuh.fit.services.implement.CuaHangImpl;
+import vn.edu.iuh.fit.services.implement.DonHangmImpl;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/donhang")
 public class DonHangController {
 
     @Autowired
-    private DonHangServices donHangServices;
+    private DonHangmImpl donHangServices;
 
     @Autowired
-    private CuaHangServices cuaHangServices;
+    private CuaHangImpl cuaHangServices;
 
     @GetMapping("/list")
     public String getistDonHang(Model model ) {

@@ -35,11 +35,11 @@
     <input type="text" id="tensp" th:field="*{tensp}" placeholder="Nhập tên sản phẩm" required><br><br>
 
     <!-- Trạng Thái -->
-    <label for="trangthai">Trạng Thái:</label>
-    <select id="trangthai" th:field="*{trangthai}">
-        <option value="CHAP_NHAN">Chấp Nhận</option>
-        <option value="CHUA_CHAP_NHAN">Chưa Chấp Nhận</option>
-    </select><br><br>
+    <label>Trạng Thái:</label><br>
+    <input type="radio" id="chapnhan" name="trangthai" th:field="*{trangthai}" value="CHAP_NHAN">
+    <label for="chapnhan">Chấp Nhận</label><br>
+    <input type="radio" id="chuachapnhan" name="trangthai" th:field="*{trangthai}" value="CHUA_CHAP_NHAN">
+    <label for="chuachapnhan">Chưa Chấp Nhận</label><br><br>
 
     <!-- Cửa Hàng -->
     <label for="macuahang">Cửa Hàng:</label>
