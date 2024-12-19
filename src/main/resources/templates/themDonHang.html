@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm Đơn Hàng</title>
+
+</head>
+<body>
+<h1 align="center">Thêm Đơn Hàng</h1>
+<form th:action="@{/donhang/add}" th:object="${dh}" method="post" align="center" onsubmit="return validateForm()">
+<!--    &lt;!&ndash; Mã Đơn Hàng &ndash;&gt;-->
+<!--    <label for="madonhang">Mã Đơn Hàng:</label>-->
+<!--    <input type="text" id="madonhang" th:field="*{madonhang}" required placeholder="Nhập mã đơn hàng"><br><br>-->
+
+
+    <!-- Tên Khách Hàng -->
+    <label for="tenkhachhang">Tên Khách Hàng:</label>
+    <input type="text" id="tenkhachhang" th:field="*{tenkhachhang}" minlength="5" maxlength="50" placeholder="Nhập tên khách hàng" required><br><br>
+
+    <!-- Email -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" th:field="*{email}" placeholder="Nhập email" required><br><br>
+
+    <!-- Ngày Đặt Hàng -->
+    <label for="ngaydathang">Ngày Đặt Hàng:</label>
+    <input type="date" id="ngaydathang" th:field="*{ngaydathang}" placeholder="Chọn ngày đặt hàng" required><br><br>
+
+<!--    Hien thi loi Ngày đặt hàng: phải lớn hơn ngày hiện tại-->
+    <div th:if="${ngaydathangError}" style="color: red;">
+        <p th:text="${ngaydathangError}"></p>
+    </div><br>
+
+    <!-- Tên Sản Phẩm -->
+    <label for="tensp">Tên Sản Phẩm:</label>
+    <input type="text" id="tensp" th:field="*{tensp}" placeholder="Nhập tên sản phẩm" required><br><br>
+
+    <!-- Trạng Thái -->
+    <label for="trangthai">Trạng Thái:</label>
+    <select id="trangthai" th:field="*{trangthai}">
+        <option value="CHAP_NHAN">Chấp Nhận</option>
+        <option value="CHUA_CHAP_NHAN">Chưa Chấp Nhận</option>
+    </select><br><br>
+
+    <!-- Cửa Hàng -->
+    <label for="macuahang">Cửa Hàng:</label>
+    <select id="macuahang" th:field="*{macuahang}">
+        <option th:each="cuahang : ${listCuaHang}"
+                th:value="${cuahang.id}"
+                th:text="${cuahang.ten}"></option>
+    </select><br><br>
+
+    <!-- Nút Thêm Đơn Hàng -->
+    <button type="submit">Thêm Đơn Hàng</button>
+</form>
+</body>
+</html>

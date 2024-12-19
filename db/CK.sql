@@ -1,0 +1,41 @@
+CREATE DATABASE if NOT EXISTS ck_qlbh;
+
+-- Tạo bảng CUAHANG
+CREATE TABLE CUAHANG (
+    MACUAHANG INT PRIMARY KEY,
+    TEN NVARCHAR(50) NOT NULL
+);
+
+-- Tạo bảng DONHANG
+CREATE TABLE DONHANG (
+    ID INT PRIMARY KEY,
+    MADONHANG NVARCHAR(20) NOT NULL,
+    TENKHACHHANG NVARCHAR(50),
+    EMAIL NVARCHAR(50),
+    NGAYDATHANG DATE,
+    TENSP NVARCHAR(50),
+    TRANGTHAI TINYINT DEFAULT 1 CHECK (TRANGTHAI IN (0,1)),
+    MACUAHANG INT,
+    FOREIGN KEY (MACUAHANG) REFERENCES CUAHANG(MACUAHANG)
+);
+
+-- Chèn dữ liệu vào bảng CUAHANG
+INSERT INTO CUAHANG (MACUAHANG, TEN) VALUES
+(1, N'Cửa Hàng A'),
+(2, N'Cửa Hàng B');
+
+-- Chèn dữ liệu vào bảng DONHANG
+INSERT INTO DONHANG (ID, MADONHANG, TENKHACHHANG, EMAIL, NGAYDATHANG, TENSP, TRANGTHAI, MACUAHANG) VALUES
+(1, 'DH001', N'Nguyen Van A', 'a@gmail.com', '2024-12-01', N'Sản phẩm 1', 1, 1),
+(2, 'DH002', N'Tran Thi B', 'b@gmail.com', '2024-12-02', N'Sản phẩm 2', 0, 1),
+(3, 'DH003', N'Le Van C', 'c@gmail.com', '2024-12-03', N'Sản phẩm 3', 1, 2),
+(4, 'DH004', N'Pham Thi D', 'd@gmail.com', '2024-12-04', N'Sản phẩm 4', 1, 2);
+
+
+-- Xem dữ liệu trong bảng CUAHANG
+SELECT * FROM CUAHANG;
+
+-- Xem dữ liệu trong bảng DONHANG
+SELECT * FROM DONHANG;
+
+
