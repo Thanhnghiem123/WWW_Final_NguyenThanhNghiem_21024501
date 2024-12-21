@@ -34,12 +34,28 @@
     <label for="tensp">Tên Sản Phẩm:</label>
     <input type="text" id="tensp" th:field="*{tensp}" placeholder="Nhập tên sản phẩm" required><br><br>
 
-    <!-- Trạng Thái -->
-    <label>Trạng Thái:</label><br>
-    <input type="radio" id="chapnhan" name="trangthai" th:field="*{trangthai}" value="CHAP_NHAN">
-    <label for="chapnhan">Chấp Nhận</label><br>
-    <input type="radio" id="chuachapnhan" name="trangthai" th:field="*{trangthai}" value="CHUA_CHAP_NHAN">
-    <label for="chuachapnhan">Chưa Chấp Nhận</label><br><br>
+<!--    &lt;!&ndash; Trạng Thái &ndash;&gt;-->
+<!--    <label>Trạng Thái:</label><br>-->
+
+<!--    <input type="radio" id="chapnhan" name="trangthai" th:field="*{trangthai}" value="CHAP_NHAN" checked>-->
+<!--    <label for="chapnhan">Chấp Nhận</label><br>-->
+<!--    <input type="radio" id="chuachapnhan" name="trangthai" th:field="*{trangthai}" value="CHUA_CHAP_NHAN">-->
+<!--    <label for="chuachapnhan">Chưa Chấp Nhận</label><br><br>-->
+    <div>
+        <label>Trạng Thái</label><br>
+        <br>
+        <label>
+            <input type="radio" id="chapNhan" name="trangthai" value="CHAP_NHAN" checked>
+            Chấp nhận
+        </label>
+        <label>
+            <input type="radio" id="chuaChapNhan" name="trangthai" value="KHONG_CHAP_NHAN">
+            Chưa chấp nhận
+        </label>
+
+    </div>
+    <br><br>
+
 
     <!-- Cửa Hàng -->
     <label for="macuahang">Cửa Hàng:</label>
